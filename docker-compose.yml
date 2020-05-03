@@ -1,0 +1,29 @@
+version: "3.3"
+services: 
+    db:
+        environment: 
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_DB: postgres
+        image: postgres:latest
+        ports:
+          - 5432:5432
+        restart: always
+        volumes:
+          - ./databaseScript/init.sql:/docker-entrypoint-initdb.d/init.sql 
+    app:
+        build: ./app
+        container_name: app
+        restart: always
+        expose:
+            - 8080
+        depends_on:
+            - db
+    nginx:
+        build: ./nginx
+        container_name: nginx
+        depends_on: 
+            - app
+        restart: always
+        ports: 
+            - '80:80'
