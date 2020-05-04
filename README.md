@@ -21,6 +21,6 @@
 # API Endpoints
  1. GET    /api/patients: Gives you all the details of the patients stored in database. Return an empty array if there are no records.
  2. POST   /api/patients: Allows you to post patient details in form of HTTP POST request. Header should contain "content-type:application/json" and it accepts                              (name,location,streetname,status) parameters.
- 3. DELETE /api/patients/id: Allows you to delete patient record that matches the <id>.
+ 3. DELETE /api/patients/id: Allows you to delete patient record that matches the id.
  4. PUT    /api/patients/id: Allows you to update patient record that matched the id.
  5. GET    /api/patients/id: Allows you to query single patient record from the database.
